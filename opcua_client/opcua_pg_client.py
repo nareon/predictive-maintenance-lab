@@ -1,3 +1,8 @@
+# 
+# Клиент OPC UA на Python.
+# Читает параметры оборудования (вибрация, температура, давление, тревога) 
+# и записывает их в таблицу PostgreSQL.
+#
 from opcua import Client
 from time import sleep
 import psycopg2
