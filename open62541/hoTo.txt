@@ -1,0 +1,15 @@
+sudo apt-get install git build-essential gcc pkg-config cmake python3
+cd ~/
+git clone https://github.com/open62541/open62541.git
+cd open62541
+mkdir build && cd build
+cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DUA_NAMESPACE_ZERO=FULL ..
+make
+sudo make install
+
+/home/ol/predictive-maintenance-lab/open62541
+gcc -std=c99 myServer.c -lopen62541 -o myServer
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+
+gcc -std=c99 myServer3.c -lopen62541 -lm -o myServer3
