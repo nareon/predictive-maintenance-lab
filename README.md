@@ -1,3 +1,16 @@
+```mermaid
+flowchart LR
+  A[PLC/SCADA] <--> B[OPC UA Server]
+  B --> C[open62541 Client]
+  C --> D[Python Collector]
+  D --> E[(PostgreSQL + TimescaleDB)]
+  E --> F[Grafana Dashboards]
+  E --> G[ML Pipelines]
+  G -->|labels| E
+  G -->|scores| F
+```
+
+
 # OPC UA Сервер — генератор телеметрии с аномалиями
 
 Этот пример использует **open62541** для создания OPC UA сервера, моделирующего
