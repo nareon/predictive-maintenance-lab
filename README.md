@@ -31,6 +31,7 @@ flowchart LR
 ## Сборка
 ```bash
 gcc opcua_gen_pro.c -lopen62541 -lm -o opcua_gen_pro
+```
 
 ## Сбор данных в PostgreSQL
 
@@ -54,4 +55,5 @@ CREATE TABLE public.sensor_data2 (
     pressure DOUBLE PRECISION,
     vibration_alarm BOOLEAN
 );
+```
 
