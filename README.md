@@ -18,3 +18,27 @@
 ## Сборка
 ```bash
 gcc opcua_gen_pro.c -lopen62541 -lm -o opcua_gen_pro
+
+## Сбор данных в PostgreSQL
+
+Для записи метрик, генерируемых сервером `dynamic4.c`, используется Python‑скрипт `reader4.py`.
+
+### Описание
+Скрипт подключается к OPC UA серверу и считывает параметры:
+- Bearing_Vibration_mm_s
+- Temperature_C
+- Pressure_bar
+- Bearing_Alarm
+
+Затем он записывает данные в таблицу `public.sensor_data2` в PostgreSQL с меткой времени.
+
+### Структура таблицы
+```sql
+CREATE TABLE public.sensor_data2 (
+    ts TIMESTAMPTZ NOT NULL,
+    vibration DOUBLE PRECISION,
+    temperature DOUBLE PRECISION,
+    pressure DOUBLE PRECISION,
+    vibration_alarm BOOLEAN
+);
+
