@@ -46,7 +46,7 @@ try:
 
     # --- Цикл сбора данных ---
     print("📡 Начинаем сбор метрик от dynamic4.c...")
-    for i in range(1000):  # 1000 итераций по 2 сек = ~33 минуты
+    for i in range(10000):  # 1000 итераций по 2 сек = ~33 минуты
         ts = datetime.now()
         vibration   = vib_node.get_value()
         temperature = temp_node.get_value()

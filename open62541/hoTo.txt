@@ -12,4 +12,4 @@ gcc -std=c99 myServer.c -lopen62541 -o myServer
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 
-gcc -std=c99 myServer3.c -lopen62541 -lm -o myServer3
+gcc -std=c99 dynamic4.c -lopen62541 -lm -o servers/dynamic4

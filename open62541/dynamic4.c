@@ -57,7 +57,7 @@ static void update_cb(UA_Server *server, void *data) {
 
     // --- 1. Вибрация ---
     vib_value = 2.0 + 0.5 * sin(t * 3.1) + 0.2 * (frand() - 0.5); // базовая модель
-    if (frand() < 0.001) vib_value += 5.0;                        // редкий скачок
+    if (frand() < 0.05) vib_value += 5.0;                        // редкий скачок
     if (vib_value < 0) vib_value = 0;
     if (vib_value > 15.0) vib_value = 15.0;
     UA_Variant_setScalar(&val, &vib_value, &UA_TYPES[UA_TYPES_DOUBLE]);
@@ -154,7 +154,7 @@ int main(void) {
         attrAlarm, NULL, NULL);
 
     // Регистрируем обновление каждые 100 мс (как в gen.c)
-    UA_Server_addRepeatedCallback(server, update_cb, NULL, 100, NULL);
+    UA_Server_addRepeatedCallback(server, update_cb, NULL, 2000, NULL);
 
     UA_Server_run(server, &running);
     UA_Server_delete(server);
